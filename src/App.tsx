@@ -1,12 +1,19 @@
 import { useState } from 'react'
+import words from './values/words.json'
 
 function App() {
   const [password, setPassword] = useState("");
 
   const onSubmit = (e) =>{
-    e.preventDefault()
+      e.preventDefault()
 
-      setPassword("red");
+      let pword = "";
+      //first algorithm to generate a password of 10 characters
+      for(var i = 1; i <= 16; i++){
+        pword += String.fromCharCode(Math.random() * (126 - 32) + 32);
+      }
+    
+      setPassword(pword);
   }
 
 
