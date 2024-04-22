@@ -1,0 +1,22 @@
+{
+    "groups": {
+        "greendot": {
+            "users": ["name", "name", "name"],
+            "roles": ["rolename", "rolename", "rolename"]
+        },
+        "devops": {
+            "users": ["name", "name", "name"],
+            "roles": ["rolename", "rolename", "rolename"]
+        }
+    },
+    "group2": {
+        "greendot": {
+            "users": ["name", "name", "name"],
+            "roles": ["rolename", "rolename", "rolename"]
+        },
+        "devops": {
+            "users": ["name", "name", "name"],
+            "roles": ["rolename", "rolename", "rolename"]
+        }
+    }
+}
