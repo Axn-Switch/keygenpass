@@ -55,12 +55,16 @@ function App() {
       setResult(e.target.value);
   }
 
+  const clipboardCopy = () => {
+    navigator.clipboard.writeText(password)
+  }
+
   return (
     <>
-      <form>
+      <div>
         <div className='pane'>
           <input type='text' id='password' name='password'value={password} readOnly/>
-        </div>
+        <button onClick={clipboardCopy} title='copy text'>copy</button></div>
         <div>
           <button onClick={passwordlvl} value={1}>Standard</button>
           <button onClick={passwordlvl} value={2}>Strong</button>
@@ -68,7 +72,7 @@ function App() {
         </div>
         <div>{!checked ? <button onClick={onSubmit} disabled>Generate</button> : <button onClick={onSubmit} >Generate</button>}
         </div>
-      </form>
+      </div>
 
     </>
   )
