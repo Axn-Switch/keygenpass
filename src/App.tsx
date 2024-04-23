@@ -3,20 +3,28 @@ import words from './values/words.json'
 
 function App() {
   const [password, setPassword] = useState("");
+  const [checked, setChecked] = useState(0);
+  const [result, setResult] = useState(0);
 
-  const onSubmit = (e) =>{
+  const onSubmit = (e: any) =>{
       e.preventDefault()
 
       let pword = "";
-      ;
 
       //first algorithm
       //setPassword(pwordtype1(pword).toString());
-
-      setPassword(pwordtype2());
+      if(result == 1){
+        setPassword(pwordtype1());
+      }
+      else if(result == 2){
+        setPassword(pwordtype2(pword).toString())
+      }
+      else{
+        console.log("still working on this oops")
+      }
   }
 
-  const pwordtype1 = (pword: String) => {
+  const pwordtype2 = (pword: String) => {
     //first algorithm to generate a password of 10 characters
     for(var i = 1; i <= 16; i++){
       pword += String.fromCharCode(Math.random() * (126 - 32) + 32);
@@ -24,7 +32,7 @@ function App() {
     return pword;
   }
 
-  const pwordtype2 = () => {
+  const pwordtype1 = () => {
     let arr = [];
 
     for(var i = 1; i <= 7; i++){
@@ -38,14 +46,27 @@ function App() {
     return arr.join("")
   }
 
+  //adding the switch in the buttons for the password changer
+  const passwordlvl = (e: any) => {
+      e.preventDefault()
+      setChecked(1)
+
+      console.log(e.target.value); 
+      setResult(e.target.value);
+  }
+
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form>
         <div className='pane'>
           <input type='text' id='password' name='password'value={password} readOnly/>
         </div>
         <div>
-          <button>Generate</button>
+          <button onClick={passwordlvl} value={1}>Standard</button>
+          <button onClick={passwordlvl} value={2}>Strong</button>
+          <button onClick={passwordlvl} value={3}>Super Strong</button>
+        </div>
+        <div>{!checked ? <button onClick={onSubmit} disabled>Generate</button> : <button onClick={onSubmit} >Generate</button>}
         </div>
       </form>
 
