@@ -51,7 +51,6 @@ function App() {
       e.preventDefault()
       setChecked(1)
 
-      console.log(e.target.value); 
       setResult(e.target.value);
   }
 
@@ -67,8 +66,7 @@ function App() {
         <button onClick={clipboardCopy} title='copy text'>copy</button></div>
         <div>
           <button onClick={passwordlvl} value={1}>Standard</button>
-          <button onClick={passwordlvl} value={2}>Strong</button>
-          <button onClick={passwordlvl} value={3}>Super Strong</button>
+          <button onClick={passwordlvl} value={2}>Super Strong</button>
         </div>
         <div>{!checked ? <button onClick={onSubmit} disabled>Generate</button> : <button onClick={onSubmit} >Generate</button>}
         </div>
