@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import words from './values/words.json'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [password, setPassword] = useState("");
@@ -12,7 +14,7 @@ function App() {
       let pword = "";
 
       //first algorithm
-      //setPassword(pwordtype1(pword).toString());
+      //setPassword(pwordtype1(pword).toStrin g());
       if(result == 1){
         setPassword(pwordtype1());
       }
@@ -54,12 +56,29 @@ function App() {
       setResult(e.target.value);
   }
 
+  
   const clipboardCopy = () => {
     navigator.clipboard.writeText(password)
+    toast.success("Copied to Clipboard")
+    
   }
+ 
+  /* useEffect(() => {
+    const clipClick = () => {
+      toast.success("Copied to Clipboard")
+      
+    }
+    const clipboardCopy = () => {
+      navigator.clipboard.writeText(password)
+      clipClick();
+    }
+  
+  }) */
+  
 
   return (
     <>
+    
       <div>
         <div className='pane'>
           <input type='text' id='password' name='password'value={password} readOnly/>
@@ -71,7 +90,18 @@ function App() {
         <div>{!checked ? <button onClick={onSubmit} disabled>Generate</button> : <button onClick={onSubmit} >Generate</button>}
         </div>
       </div>
-
+    
+      <ToastContainer
+        position="top-center"
+        autoClose={700}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored" />
     </>
   )
 }
