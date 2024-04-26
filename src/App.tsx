@@ -82,7 +82,9 @@ function App() {
       <div>
         <div className='pane'>
           <input type='text' id='password' name='password'value={password} readOnly/>
-        <button onClick={clipboardCopy} title='copy text'>copy</button></div>
+
+          {password.length < 1 ? <button onClick={clipboardCopy} title='copy text' disabled>copy</button> : <button onClick={clipboardCopy} title='copy text'>copy</button>}
+        </div>
         <div>
           <button onClick={passwordlvl} value={1}>Standard</button>
           <button onClick={passwordlvl} value={2}>Super Strong</button>
