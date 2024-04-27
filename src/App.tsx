@@ -81,13 +81,13 @@ function App() {
     
       <div>
         <div className='pane'>
-          <input type='text' id='password' name='password'value={password} readOnly/>
+          <input type='text' id='password' name='password'value={password} readOnly className=" text-4xl rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"/>
 
           {password.length < 1 ? <button onClick={clipboardCopy} title='copy text' disabled>copy</button> : <button onClick={clipboardCopy} title='copy text'>copy</button>}
         </div>
         <div>
-          <button onClick={passwordlvl} value={1}>Standard</button>
-          <button onClick={passwordlvl} value={2}>Super Strong</button>
+          <button onClick={passwordlvl} value={1} className=" bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Standard</button>
+          <button onClick={passwordlvl} value={2} className=" bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Super Strong</button>
         </div>
         <div>{!checked ? <button onClick={onSubmit} disabled>Generate</button> : <button onClick={onSubmit} >Generate</button>}
         </div>
