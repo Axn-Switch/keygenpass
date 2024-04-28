@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import words from './values/words.json'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -78,18 +78,18 @@ function App() {
 
   return (
     <>
-    
-      <div>
-        <div className='pane'>
+    <h1 className='text-center text-3xl py-4 bg-indigo-600 m-0 font-medium text-white'>Dax Password Generator</h1>
+      <div className='text-center mt-20 m-auto'>
+        <div className='pane text-center'>
           <input type='text' id='password' name='password'value={password} readOnly className=" text-4xl rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"/>
 
-          {password.length < 1 ? <button onClick={clipboardCopy} title='copy text' disabled>copy</button> : <button onClick={clipboardCopy} title='copy text'>copy</button>}
+          {password.length < 1 ? <button onClick={clipboardCopy} title='copy text' disabled  className=' disabled:opacity-45 px-3.5 py-2.5 bg-black text-white'>copy</button> : <button onClick={clipboardCopy} title='copy text'  className=' px-3.5 py-2.5 bg-black text-white'>copy</button>}
         </div>
-        <div>
-          <button onClick={passwordlvl} value={1} className=" bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Standard</button>
-          <button onClick={passwordlvl} value={2} className=" bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Super Strong</button>
+        <div className='mt-7 mb-5 text-1xl'>
+          <button onClick={passwordlvl} value={1} className="mr-4 bg-indigo-600 px-3.5 py-2.5 text-center  font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Standard</button>
+          <button onClick={passwordlvl} value={2} className="ml-4 bg-indigo-600 px-3.5 py-2.5 text-center  font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Super Strong</button>
         </div>
-        <div>{!checked ? <button onClick={onSubmit} disabled>Generate</button> : <button onClick={onSubmit} >Generate</button>}
+        <div>{!checked ? <button onClick={onSubmit} disabled className=' disabled:opacity-45 px-3.5 py-2.5 bg-black text-white'>Generate</button> : <button onClick={onSubmit} className=' px-3.5 py-2.5 bg-black text-white' >Generate</button>}
         </div>
       </div>
     
