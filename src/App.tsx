@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import words from './values/words.json'
 import { ToastContainer, toast } from 'react-toastify';
+import { BiCopy } from 'react-icons/bi';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
@@ -81,15 +82,15 @@ function App() {
     <h1 className='text-center text-3xl py-4 bg-indigo-600 m-0 font-medium text-white'>Dax Password Generator</h1>
       <div className='text-center mt-20 m-auto'>
         <div className='pane text-center'>
-          <input type='text' id='password' name='password'value={password} readOnly className=" text-4xl rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"/>
+          <input type='text' id='password' name='password'value={password} readOnly className=" py-3 px-32 text-4xl rounded-md border-0  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6"></input>
 
-          {password.length < 1 ? <button onClick={clipboardCopy} title='copy text' disabled  className=' disabled:opacity-45 px-3.5 py-2.5 bg-black text-white'>copy</button> : <button onClick={clipboardCopy} title='copy text'  className=' px-3.5 py-2.5 bg-black text-white'>copy</button>}
+          {password.length < 1 ? <button onClick={clipboardCopy} title='copy text' disabled  className=' disabled:opacity-45 px-3.5 py-2.5 bg-black text-white'><BiCopy/></button> : <button onClick={clipboardCopy} title='copy text'  className=' px-3.5 py-2.5 bg-black text-white'><BiCopy/></button>}
         </div>
         <div className='mt-7 mb-5 text-1xl'>
-          <button onClick={passwordlvl} value={1} className="mr-4 bg-indigo-600 px-3.5 py-2.5 text-center  font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Standard</button>
-          <button onClick={passwordlvl} value={2} className="ml-4 bg-indigo-600 px-3.5 py-2.5 text-center  font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Super Strong</button>
+          <button onClick={passwordlvl} value={1} className="focus:bg-red-900 mr-4 bg-indigo-600 px-10 py-4 rounded-lg  text-center  font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Standard</button>
+          <button onClick={passwordlvl} value={2} className=" focus:bg-red-900  ml-4 bg-indigo-600 px-10 py-4 text-center rounded-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Super Strong</button>
         </div>
-        <div>{!checked ? <button onClick={onSubmit} disabled className=' disabled:opacity-45 px-3.5 py-2.5 bg-black text-white'>Generate</button> : <button onClick={onSubmit} className=' px-3.5 py-2.5 bg-black text-white' >Generate</button>}
+        <div>{!checked ? <button onClick={onSubmit} disabled className='disabled:opacity-45 bg-black px-10 py-4 rounded-lg text-white'>Generate</button> : <button onClick={onSubmit} className='rounded-lg bg-black text-white px-10 py-4 ' >Generate</button>}
         </div>
       </div>
     
